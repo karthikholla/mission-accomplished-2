@@ -1,0 +1,7 @@
+.terraform
+.terraform/*
+terraform.tfvars
+terraform.plan
+terraform.tfstate
+terraform.tfstate.backup
+*.plan

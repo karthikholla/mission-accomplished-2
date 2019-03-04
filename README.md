@@ -64,3 +64,16 @@ You can destroy this cluster and vpc entirely by running:
 ```bash
 terraform destroy
 ```
+
+###configuration file for the RDS service
+
+### RDS username and password into the Kubernetes cluster
+username and password is a base64 encoded string generated
+```
+echo -n ${RDS_TEMP_CREDENTIALS} | base64
+```
+
+### Route53 mapping
+```
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/kops/master/addons/route53-mapper/v1.3.0.yml
+```

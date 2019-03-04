@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: eks-demo
+  labels:
+    app: eks-demo
+    dns: route53
+  annotations:
+    domainName: "sandbox.gale**labs.com"
+    service.beta.kubernetes.io/aws-load-balancer-ssl-cert: |-
+      arn:aws:acm:us-east-1:100372148713:certificate/0d14e97d-3f69-4743-b2d0-e56c4d4efeba
+    service.beta.kubernetes.io/aws-load-balancer-backend-protocol: http
+    service.beta.kubernetes.io/aws-load-balancer-ssl-ports: "443"
+spec:
+  selector:
+    app: eks-demo
+  ports:
+    - name: http
+      port: 80
+      protocol: TCP
+    - name: https
+      port: 443
+      protocol: TCP

@@ -73,7 +73,12 @@ username and password is a base64 encoded string generated
 echo -n ${RDS_TEMP_CREDENTIALS} | base64
 ```
 
-### Route53 mapping
+### Ingress
+```
+kubectl run nginx --image=nginx --replicas=1 --port=80
+kubectl expose deployment nginx --port=80 --target-port=80 --type=LoadBalancer
+```
+Route53 mapping
 ```
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/kops/master/addons/route53-mapper/v1.3.0.yml
 ```

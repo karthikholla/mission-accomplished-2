@@ -47,6 +47,16 @@ Apply the config map to EKS:
 kubectl apply -f config-map-aws-auth.yaml
 ```
 
+### Create role  to map user
+```
+```
+
+### Create role binding to map user
+```
+```
+
+
+
 ### Cleaning up
 
 You can destroy this cluster and vpc entirely by running:

@@ -14,15 +14,15 @@ data:
       - name: AWS_PROFILE
         value: sandbox
       - rolearn: arn:aws:iam::100372148713:role/admin
-        username: admin  
-      - rolearn: arn:aws:iam::100372148713:role/user-1
-        username: user-1
-      - rolearn: arn:aws:iam::100372148713:role/user-2
-        username: user-2
-      - rolearn: arn:aws:iam::100372148713:role/user-3
-        username: user-3
-      - rolearn: arn:aws:iam::100372148713:role/user-4
-        username: user-4
+        username: admin
+      # - rolearn: arn:aws:iam::100372148713:role/user-1
+      #   username: user-1
+      # - rolearn: arn:aws:iam::100372148713:role/user-2
+      #   username: user-2
+      # - rolearn: arn:aws:iam::100372148713:role/user-3
+      #   username: user-3
+      # - rolearn: arn:aws:iam::100372148713:role/user-4
+      #   username: user-4
 
 
   mapUsers: |

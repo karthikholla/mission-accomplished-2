@@ -53,8 +53,8 @@ kubectl apply -f config-map-aws-auth.yaml
 
 ### Create role binding to map user
 ```
+$ kubectl create rolebinding admin-binding --role=arn:aws:iam::100372148713:role/admin --group=admin --namespace=admin
 ```
-
 
 
 ### Cleaning up
@@ -65,7 +65,7 @@ You can destroy this cluster and vpc entirely by running:
 terraform destroy
 ```
 
-###configuration file for the RDS service
+### Configuration file for the RDS service
 
 ### RDS username and password into the Kubernetes cluster
 username and password is a base64 encoded string generated

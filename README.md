@@ -65,6 +65,20 @@ You can destroy this cluster and vpc entirely by running:
 terraform destroy
 ```
 
+### namespace
+```
+kubectl create namespace user-1
+.
+.
+.
+kubectl create namespace user-20
+```
+or
+```
+kubectl apply -f namespace.yaml
+```
+
+
 ### Configuration file for the RDS service
 
 ### RDS username and password into the Kubernetes cluster

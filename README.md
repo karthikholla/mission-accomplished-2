@@ -56,15 +56,6 @@ kubectl apply -f config-map-aws-auth.yaml
 $ kubectl create rolebinding admin-binding --role=arn:aws:iam::100372148713:role/admin --group=admin --namespace=admin
 ```
 
-
-### Cleaning up
-
-You can destroy this cluster and vpc entirely by running:
-
-```bash
-terraform destroy
-```
-
 ### namespace
 ```
 kubectl create namespace user-1
@@ -95,4 +86,31 @@ kubectl expose deployment nginx --port=80 --target-port=80 --type=LoadBalancer
 Route53 mapping
 ```
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/kops/master/addons/route53-mapper/v1.3.0.yml
+```
+
+Install cert manager
+
+Install Let‘s Encrypt
+```
+curl -sSL https://rawgit.com/ahmetb/gke-letsencrypt/master/yaml/letsencrypt-issuer.yaml | \
+    sed -e "s/email: ''/email: $EMAIL/g" | \
+    kubectl apply -f-
+```
+
+```
+kubectl apply -f ingress-tls.yaml
+```
+
+to check the certificate
+```
+kubectl get certificate
+```
+
+
+### Cleaning up
+
+You can destroy this cluster and vpc entirely by running:
+
+```bash
+terraform destroy
 ```

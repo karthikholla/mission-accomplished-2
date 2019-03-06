@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: eks-demo
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: eks-demo-ip
+    certmanager.k8s.io/cluster-issuer: letsencrypt-prod
+    certmanager.k8s.io/acme-http01-edit-in-place: "true"
+  labels:
+    app: hello
+spec:
+  backend:
+    serviceName: eks-demo-backend
+    servicePort: 8080
+  tls:
+  - secretName: www-mission-accomplished-tls
+    hosts:
+    - www.mission-accomplished.com
